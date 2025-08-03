@@ -1,0 +1,24 @@
+2025-07-26 11:28:39:2839 [31merror[39m: [31m[09f6226b-3dfa-476d-9217-1487a4b07c15] Validation failed[39m
+2025-07-30 13:24:30:2430 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-07-30 13:25:04:254 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-02 12:10:48:1048 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-02 12:11:45:1145 [32minfo[39m: [32mAudit: USER_REGISTER[39m
+2025-08-02 12:11:54:1154 [32minfo[39m: [32mAudit: USER_LOGIN[39m
+2025-08-02 12:12:01:121 [31merror[39m: [31m[372a0d07-ce44-4bbf-b0ba-433cdd67440e] Invalid or expired access token[39m
+2025-08-02 12:12:15:1215 [32minfo[39m: [32mAudit: USER_LOGIN[39m
+2025-08-02 12:12:24:1224 [31merror[39m: [31m[bc804000-4b71-47b2-bfeb-3c63f8648441] Invalid or expired access token[39m
+2025-08-02 12:12:36:1236 [31merror[39m: [31m[88007186-ba0e-4085-9471-a52cb7693098] Invalid or expired access token[39m
+2025-08-02 12:13:26:1326 [31merror[39m: [31m[ed60fd01-e756-408b-a400-466f1a54e67a] User role is not defined[39m
+2025-08-02 12:14:51:1451 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-02 12:15:07:157 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-02 12:15:25:1525 [32minfo[39m: [32mAudit: USER_LOGIN[39m
+2025-08-02 12:15:36:1536 [31merror[39m: [31m[6e957726-46b1-4234-824b-250d42f2ff8f] Invalid or expired access token[39m
+2025-08-02 12:15:38:1538 [31merror[39m: [31m[a945606e-18ba-4169-94df-e0c32b1ce255] Invalid or expired access token[39m
+2025-08-02 12:15:59:1559 [31merror[39m: [31m[6015831f-9bef-4e7d-b842-35f8412010c8] Access token missing[39m
+2025-08-02 12:16:20:1620 [31merror[39m: [31m[4fd7a401-209d-45ff-a62e-4822e7fefa0d] Invalid or expired authorization code[39m
+2025-08-02 12:17:44:1744 [31merror[39m: [31m[cb9fd750-100f-4b28-a669-e090da21e38b] Access token missing[39m
+2025-08-02 12:18:51:1851 [31merror[39m: [31m[9041691e-8748-4814-969e-5f69baf49142] Invalid or expired authorization code[39m
+2025-08-02 12:20:27:2027 [31merror[39m: [31m[fcbe173e-f112-4181-af72-21dc3ee2cf6f] Access token missing[39m
+2025-08-02 12:21:25:2125 [32minfo[39m: [32mAudit: USER_LOGIN[39m
+2025-08-02 12:22:26:2226 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-02 12:25:14:2514 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m

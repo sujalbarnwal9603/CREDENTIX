@@ -1,0 +1,5 @@
+node_modules/
+.env
+
+# Do not commit private key
+src/keys/private.pem
