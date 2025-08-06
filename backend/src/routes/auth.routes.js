@@ -4,13 +4,12 @@ import emailController from "../controllers/email.controller.js"
 import passwordController from "../controllers/password.controller.js"
 import { verifyJWT } from "../middlewares/auth.middleware.js"
 import { validate, schemas } from "../middlewares/validation.middleware.js"
-import { authLimiter } from "../middlewares/rateLimiter.middleware.js"
 import { auditMiddleware } from "../services/audit.service.js"
 
 const router = Router()
 
 // Apply rate limiting to all auth routes
-router.use(authLimiter)
+// router.use(authLimiter) // COMMENT THIS LINE OUT TEMPORARILY
 
 // ✅ PUBLIC ROUTES (no authentication required)
 router.post("/register", validate(schemas.register), auditMiddleware("USER_REGISTER"), authController.registerUser)

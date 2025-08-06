@@ -3,3 +3,6 @@ node_modules/
 
 # Do not commit private key
 src/keys/private.pem
+logs/
+logs/combined.log
+logs/error.log

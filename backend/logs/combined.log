@@ -22,3 +22,58 @@
 2025-08-02 12:21:25:2125 [32minfo[39m: [32mAudit: USER_LOGIN[39m
 2025-08-02 12:22:26:2226 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
 2025-08-02 12:25:14:2514 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-03 12:17:37:1737 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-03 12:32:29:3229 [31merror[39m: [31m[923fea09-bae9-41e4-8258-abb64396732b] Validation failed[39m
+2025-08-03 12:32:30:3230 [31merror[39m: [31m[86cbff93-6fb8-4a17-9b8b-02f97bd6c52b] Validation failed[39m
+2025-08-03 12:32:31:3231 [31merror[39m: [31m[da1ac27c-ccf5-48f8-92d6-b4f701b6f7d5] Validation failed[39m
+2025-08-03 12:32:32:3232 [31merror[39m: [31m[ad26e0e2-42f7-4eb8-94cd-5dd589a89f4a] Validation failed[39m
+2025-08-03 12:32:32:3232 [31merror[39m: [31m[b44e2c8e-1742-49b4-81ed-9de5ba589a7a] Validation failed[39m
+2025-08-03 13:26:54:2654 [31merror[39m: [31m[757016dc-bff6-4562-b8cd-3d0a81c33d4c] Bad Request[39m
+2025-08-03 13:26:57:2657 [31merror[39m: [31m[ea3fdaf6-fd44-4715-a85a-ba3190643e93] Bad Request[39m
+2025-08-03 13:26:57:2657 [31merror[39m: [31m[1d74a48f-4836-43fd-932d-4d161f24bc5f] Bad Request[39m
+2025-08-03 13:32:37:3237 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 18:42:58:4258 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 18:57:35:5735 [31merror[39m: [31m[ab1944f5-0c61-40d8-a460-e1b310558da3] Validation failed[39m
+2025-08-04 19:26:51:2651 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 19:27:11:2711 [31merror[39m: [31m[53b3fad3-2009-48ab-885f-c6b695daa8fd] Validation failed[39m
+2025-08-04 19:27:49:2749 [31merror[39m: [31m[282ca7d4-7476-4aa3-928b-558908ce0daa] Validation failed[39m
+2025-08-04 19:27:50:2750 [31merror[39m: [31m[171a7071-1c35-408d-8ba1-36cf579a2bb6] Validation failed[39m
+2025-08-04 19:29:05:295 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 19:30:11:3011 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 19:30:20:3020 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 19:30:31:3031 [31merror[39m: [31m[9cee3195-d8d0-4eda-baa6-cb0fc8722e13] Validation failed[39m
+2025-08-04 19:30:44:3044 [31merror[39m: [31m[be18aaf2-ba5a-4258-8052-da0af619a252] Validation failed[39m
+2025-08-04 19:40:29:4029 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 19:40:35:4035 [31merror[39m: [31m[bfe3b41f-c7f3-441b-bb38-7383cc4d70ae] Validation failed[39m
+2025-08-04 19:40:56:4056 [31merror[39m: [31m[917e79c4-406f-490e-9923-6835802745cc] Validation failed[39m
+2025-08-04 19:53:03:533 [31merror[39m: [31m[16628cd8-f342-4b52-9614-edfdc5305c80] Validation failed[39m
+2025-08-04 19:53:16:5316 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 19:53:22:5322 [31merror[39m: [31m[45688db8-78de-43a1-8863-b48922134272] Validation failed[39m
+2025-08-04 19:54:14:5414 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 19:54:27:5427 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 19:54:30:5430 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 19:54:34:5434 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 19:54:50:5450 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 19:55:06:556 [31merror[39m: [31m[31705d6c-9546-4cf5-8ec6-5bea5d5fc3f3] Validation failed[39m
+2025-08-04 19:58:01:581 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 19:58:42:5842 [31merror[39m: [31m[1878b56b-3f13-4854-b42f-dc2151e72282] Validation failed[39m
+2025-08-04 19:58:59:5859 [31merror[39m: [31m[77cfa293-275e-4abc-95ca-a229c2c95052] Invalid Password[39m
+2025-08-04 19:58:59:5859 [32minfo[39m: [32mAudit: USER_LOGIN[39m
+2025-08-04 20:07:29:729 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-04 20:07:38:738 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:18:19:1819 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:30:21:3021 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:30:36:3036 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:53:47:5347 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:53:47:5347 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:55:45:5545 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:55:45:5545 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:55:54:5554 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:55:57:5557 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:56:02:562 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:56:07:567 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:56:07:567 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:56:17:5617 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-06 14:58:02:582 [32minfo[39m: [32mAudit: USER_REGISTER[39m
+2025-08-06 15:00:13:013 [32minfo[39m: [32mAudit: USER_REGISTER[39m
+2025-08-06 15:02:40:240 [32minfo[39m: [32mAudit: USER_REGISTER[39m
