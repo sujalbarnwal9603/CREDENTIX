@@ -1,7 +1,7 @@
 'use server'
 
 import { redirect } from 'next/navigation'
-import { cookies } from 'next/headers' // Import cookies from next/headers
+import { cookies } from 'next/headers'
 import axios from 'axios';
 
 export async function registerUserAction(formData: FormData) {
@@ -90,7 +90,7 @@ export async function loginUserAction(prevState: any, formData: FormData) {
       timeout: 10000,
     });
 
-    const data = response.data.data; // Backend ApiResponse wraps data in a 'data' field
+    const data = response.data.data;
 
     if (response.status >= 400) {
       console.error("Backend login error:", data);
@@ -98,14 +98,11 @@ export async function loginUserAction(prevState: any, formData: FormData) {
     }
 
     // Set cookies received from the backend
-    // Assuming your backend sends accessToken and refreshToken in the response body
-    // If your backend sets them as HTTP-only cookies directly, you might not need this.
-    // However, if it sends them in the JSON response, this is how you'd set them.
     if (data.accessToken) {
       cookies().set('accessToken', data.accessToken, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // Use secure in production
-        maxAge: 15 * 60, // 15 minutes
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 15 * 60,
         path: '/',
       });
     }
@@ -113,13 +110,13 @@ export async function loginUserAction(prevState: any, formData: FormData) {
       cookies().set('refreshToken', data.refreshToken, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        maxAge: 7 * 24 * 60 * 60, // 7 days
+        maxAge: 7 * 24 * 60 * 60,
         path: '/',
       });
     }
 
     console.log("Login successful, redirecting to dashboard...");
-    redirect('/dashboard'); // Redirect to a dashboard page after login
+    redirect('/dashboard');
 
   } catch (error: any) {
     if (error && error.digest && error.digest.startsWith('NEXT_REDIRECT')) {
@@ -139,5 +136,39 @@ export async function loginUserAction(prevState: any, formData: FormData) {
       }
     }
     return { success: false, message: "An unexpected error occurred." };
+  }
+}
+
+export async function logoutUserAction() {
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const logoutEndpoint = `${backendUrl}/api/v1/auth/logout`;
+
+  console.log("Attempting to log out user at:", logoutEndpoint);
+
+  try {
+    // Call backend logout endpoint
+    // The backend's logout endpoint expects a JWT in the Authorization header or as a cookie.
+    // Since we're using HTTP-only cookies, the browser will automatically send them.
+    await axios.post(logoutEndpoint, {}, {
+      withCredentials: true, // Important for sending cookies with cross-origin requests
+      timeout: 5000,
+    });
+
+    // Clear cookies on the frontend
+    cookies().delete('accessToken');
+    cookies().delete('refreshToken');
+
+    console.log("Logout successful, redirecting to home page...");
+    redirect('/'); // Redirect to the home page after logout
+
+  } catch (error: any) {
+    if (error && error.digest && error.digest.startsWith('NEXT_REDIRECT')) {
+      throw error;
+    }
+    console.error("Error during logout:", error);
+    // Even if backend logout fails, we should still clear frontend cookies and redirect
+    cookies().delete('accessToken');
+    cookies().delete('refreshToken');
+    redirect('/'); // Always redirect to home after logout attempt
   }
 }
