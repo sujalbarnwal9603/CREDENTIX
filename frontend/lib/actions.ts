@@ -172,3 +172,51 @@ export async function logoutUserAction() {
     redirect('/'); // Always redirect to home after logout attempt
   }
 }
+
+export async function fetchUserProfile() {
+  const accessToken = cookies().get('accessToken')?.value;
+
+  if (!accessToken) {
+    return { success: false, message: "No access token found. User not authenticated." };
+  }
+
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const profileEndpoint = `${backendUrl}/api/protected/profile`;
+
+  console.log("Attempting to fetch user profile at:", profileEndpoint);
+
+  try {
+    const response = await axios.get(profileEndpoint, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+      },
+      timeout: 5000,
+    });
+
+    const data = response.data;
+
+    if (response.status >= 400) {
+      console.error("Backend profile fetch error:", data);
+      return { success: false, message: data.message || "Failed to fetch user profile." };
+    }
+
+    console.log("User profile fetched successfully:", data.user);
+    return { success: true, user: data.user };
+
+  } catch (error: any) {
+    console.error("Error fetching user profile:", error);
+    if (axios.isAxiosError(error)) {
+      if (error.response) {
+        console.error("Axios profile fetch response error:", error.response.data);
+        return { success: false, message: error.response.data.message || "Failed to fetch user profile due to server error." };
+      } else if (error.request) {
+        console.error("Axios profile fetch request error (no response):", error.request);
+        return { success: false, message: "No response from server. Check backend status or network." };
+      } else {
+        console.error("Axios profile fetch setup error:", error.message);
+        return { success: false, message: error.message || "An unexpected error occurred during request setup." };
+      }
+    }
+    return { success: false, message: "An unexpected error occurred." };
+  }
+}

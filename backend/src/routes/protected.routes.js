@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Define protected routes here
 router.get("/profile", verifyJWT, (req, res) => {
-  res.send("Profile page");
+  res.status(200).json({ success: true, user: req.user });
 });
 
 export default router;
