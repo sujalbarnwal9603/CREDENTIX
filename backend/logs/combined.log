@@ -77,3 +77,16 @@
 2025-08-06 14:58:02:582 [32minfo[39m: [32mAudit: USER_REGISTER[39m
 2025-08-06 15:00:13:013 [32minfo[39m: [32mAudit: USER_REGISTER[39m
 2025-08-06 15:02:40:240 [32minfo[39m: [32mAudit: USER_REGISTER[39m
+2025-08-06 15:08:08:88 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-07 19:49:58:4958 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-07 19:52:22:5222 [32minfo[39m: [32mAudit: USER_REGISTER[39m
+2025-08-07 19:52:31:5231 [32minfo[39m: [32mAudit: USER_REGISTER[39m
+2025-08-07 19:52:39:5239 [32minfo[39m: [32mAudit: USER_REGISTER[39m
+2025-08-07 19:54:09:549 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-07 19:54:29:5429 [32minfo[39m: [32mAudit: USER_REGISTER[39m
+2025-08-07 20:00:47:047 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-07 20:01:36:136 [32minfo[39m: [32mAudit: USER_LOGIN[39m
+2025-08-07 20:01:47:147 [32minfo[39m: [32mAudit: USER_LOGIN[39m
+2025-08-07 20:19:09:199 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-07 20:22:06:226 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-07 20:22:25:2225 [32minfo[39m: [32mAudit: USER_LOGIN[39m

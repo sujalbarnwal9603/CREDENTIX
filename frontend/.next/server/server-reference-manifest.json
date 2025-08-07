@@ -1,5 +1,22 @@
 {
-  "node": {},
+  "node": {
+    "55a5d366b3718745b5c37755ca1317cc6ed50c85": {
+      "workers": {
+        "app/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fcorelshark%2FMy-Resources%2FBackend%2FCREDENTIX%2Ffrontend%2Flib%2Factions.ts%22%2C%5B%22registerUserAction%22%2C%22loginUserAction%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
+    },
+    "8b6d2fd9552d5e57a979765531db2c9507fe23a6": {
+      "workers": {
+        "app/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fcorelshark%2FMy-Resources%2FBackend%2FCREDENTIX%2Ffrontend%2Flib%2Factions.ts%22%2C%5B%22registerUserAction%22%2C%22loginUserAction%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
+    }
+  },
   "edge": {},
-  "encryptionKey": "CDJ+E4hVyD2IF4JyEUso4FKvDZPpyGvtpE3gAokP8H8="
+  "encryptionKey": "2cdKvH9se7arDJWPXzXLkMyJJWMSeVu0A69QeRpqJcA="
 }

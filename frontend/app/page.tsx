@@ -3,9 +3,10 @@
 import { useState } from 'react'
 import { PricingCard } from '@/components/pricing-card'
 import SignUpForm from '@/components/signup-form'
+import LoginForm from '@/components/login-form' // Import the new LoginForm
 
 export default function PricingPage() {
-  const [showSignUp, setShowSignUp] = useState(false)
+  const [showForm, setShowForm] = useState<'signup' | 'login' | null>(null) // State to control which form is shown
 
   const freeFeatures = [
     "Basic authentication",
@@ -50,7 +51,7 @@ export default function PricingPage() {
           price="$0"
           features={freeFeatures}
           buttonText="Get Started"
-          onButtonClick={() => setShowSignUp(true)}
+          onButtonClick={() => setShowForm('signup')} // Show signup form
         />
         <PricingCard
           tier="Premium"
@@ -68,9 +69,35 @@ export default function PricingPage() {
         />
       </div>
 
-      {showSignUp && (
+      {showForm && (
         <div className="mt-12 w-full max-w-md">
-          <SignUpForm />
+          {showForm === 'signup' ? (
+            <>
+              <SignUpForm />
+              <p className="mt-4 text-center text-gray-400">
+                Already have an account?{' '}
+                <button
+                  onClick={() => setShowForm('login')}
+                  className="text-blue-400 hover:underline focus:outline-none"
+                >
+                  Log in
+                </button>
+              </p>
+            </>
+          ) : (
+            <>
+              <LoginForm />
+              <p className="mt-4 text-center text-gray-400">
+                Don't have an account?{' '}
+                <button
+                  onClick={() => setShowForm('signup')}
+                  className="text-blue-400 hover:underline focus:outline-none"
+                >
+                  Sign up
+                </button>
+              </p>
+            </>
+          )}
         </div>
       )}
     </div>

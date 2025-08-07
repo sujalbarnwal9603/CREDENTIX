@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react' // Import useState and useEffect
+import { useFormState, useFormStatus } from 'react-dom' // Import from 'react-dom' for form hooks
 import { registerUserAction } from '@/lib/actions'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -8,18 +8,9 @@ import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default function SignUpForm() {
-  const [formState, setFormState] = useState<{ success: boolean; message: string } | null>(null)
-  const [isPending, setIsPending] = useState(false)
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault() // Prevent default form submission
-
-    setIsPending(true)
-    const formData = new FormData(event.currentTarget)
-    const result = await registerUserAction(formData)
-    setFormState(result)
-    setIsPending(false)
-  }
+  // useFormState takes the action and an initial state
+  const [state, formAction] = useFormState(registerUserAction, null)
+  const { pending } = useFormStatus() // Get pending status for the form submission
 
   return (
     <Card className="w-full max-w-md mx-auto bg-gray-900 text-white border-gray-700">
@@ -30,7 +21,8 @@ export default function SignUpForm() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="grid gap-4"> {/* Use onSubmit */}
+        {/* Use the formAction directly on the form's action prop */}
+        <form action={formAction} className="grid gap-4">
           <div className="grid gap-2">
             <Label htmlFor="fullName">Full Name</Label>
             <Input
@@ -63,12 +55,12 @@ export default function SignUpForm() {
               className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
             />
           </div>
-          <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white" disabled={isPending}>
-            {isPending ? 'Signing Up...' : 'Sign Up'}
+          <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white" disabled={pending}>
+            {pending ? 'Signing Up...' : 'Sign Up'}
           </Button>
-          {formState?.message && (
-            <p className={`text-sm text-center ${formState.success ? 'text-green-500' : 'text-red-500'}`}>
-              {formState.message}
+          {state?.message && (
+            <p className={`text-sm text-center ${state.success ? 'text-green-500' : 'text-red-500'}`}>
+              {state.message}
             </p>
           )}
         </form>
