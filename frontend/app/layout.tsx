@@ -1,15 +1,16 @@
 import type { Metadata } from "next"
 import { Inter } from 'next/font/google'
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider" // Assuming you have this from shadcn/ui setup
+import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
+import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar" // Import SidebarProvider and SidebarInset
+import { AppSidebar } from "@/components/app-sidebar" // Import your new AppSidebar
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "AaaS Authorization",
   description: "Auth-as-a-Service by Credentix",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -22,12 +23,17 @@ export default function RootLayout({
       <body className={cn("min-h-screen bg-background font-sans antialiased", inter.className)}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark" // Force dark theme
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="bg-black text-white min-h-screen"> {/* Wrapper for black background */}
-            {children}
+          <div className="bg-black text-white min-h-screen flex"> {/* Changed to flex for sidebar layout */}
+            <SidebarProvider>
+              <AppSidebar /> {/* Your new sidebar component */}
+              <SidebarInset> {/* Main content wrapper for inset sidebar */}
+                {children}
+              </SidebarInset>
+            </SidebarProvider>
           </div>
         </ThemeProvider>
       </body>

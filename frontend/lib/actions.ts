@@ -146,30 +146,25 @@ export async function logoutUserAction() {
   console.log("Attempting to log out user at:", logoutEndpoint);
 
   try {
-    // Call backend logout endpoint
-    // The backend's logout endpoint expects a JWT in the Authorization header or as a cookie.
-    // Since we're using HTTP-only cookies, the browser will automatically send them.
     await axios.post(logoutEndpoint, {}, {
-      withCredentials: true, // Important for sending cookies with cross-origin requests
+      withCredentials: true,
       timeout: 5000,
     });
 
-    // Clear cookies on the frontend
     cookies().delete('accessToken');
     cookies().delete('refreshToken');
 
     console.log("Logout successful, redirecting to home page...");
-    redirect('/'); // Redirect to the home page after logout
+    redirect('/');
 
   } catch (error: any) {
     if (error && error.digest && error.digest.startsWith('NEXT_REDIRECT')) {
       throw error;
     }
     console.error("Error during logout:", error);
-    // Even if backend logout fails, we should still clear frontend cookies and redirect
     cookies().delete('accessToken');
     cookies().delete('refreshToken');
-    redirect('/'); // Always redirect to home after logout attempt
+    redirect('/');
   }
 }
 
@@ -214,6 +209,114 @@ export async function fetchUserProfile() {
         return { success: false, message: "No response from server. Check backend status or network." };
       } else {
         console.error("Axios profile fetch setup error:", error.message);
+        return { success: false, message: error.message || "An unexpected error occurred during request setup." };
+      }
+    }
+    return { success: false, message: "An unexpected error occurred." };
+  }
+}
+
+// New: Fetch Tenants Action
+export async function fetchTenants() {
+  const accessToken = cookies().get('accessToken')?.value;
+
+  if (!accessToken) {
+    return { success: false, message: "No access token found. User not authenticated.", tenants: [] };
+  }
+
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const tenantsEndpoint = `${backendUrl}/api/v1/tenants`;
+
+  console.log("Attempting to fetch tenants at:", tenantsEndpoint);
+
+  try {
+    const response = await axios.get(tenantsEndpoint, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+      },
+      timeout: 5000,
+    });
+
+    const data = response.data; // Assuming backend returns { success: true, data: tenantsArray }
+
+    if (response.status >= 400) {
+      console.error("Backend fetch tenants error:", data);
+      return { success: false, message: data.message || "Failed to fetch tenants.", tenants: [] };
+    }
+
+    console.log("Tenants fetched successfully:", data.data);
+    return { success: true, tenants: data.data };
+
+  } catch (error: any) {
+    console.error("Error fetching tenants:", error);
+    if (axios.isAxiosError(error)) {
+      if (error.response) {
+        console.error("Axios fetch tenants response error:", error.response.data);
+        return { success: false, message: error.response.data.message || "Failed to fetch tenants due to server error.", tenants: [] };
+      } else if (error.request) {
+        console.error("Axios fetch tenants request error (no response):", error.request);
+        return { success: false, message: "No response from server. Check backend status or network.", tenants: [] };
+      } else {
+        console.error("Axios fetch tenants setup error:", error.message);
+        return { success: false, message: error.message || "An unexpected error occurred during request setup.", tenants: [] };
+      }
+    }
+    return { success: false, message: "An unexpected error occurred.", tenants: [] };
+  }
+}
+
+// New: Create Tenant Action
+export async function createTenantAction(prevState: any, formData: FormData) {
+  const name = formData.get('name') as string;
+  const slug = formData.get('slug') as string;
+
+  if (!name || !slug) {
+    return { success: false, message: "Tenant name and slug are required." };
+  }
+
+  const accessToken = cookies().get('accessToken')?.value;
+  if (!accessToken) {
+    return { success: false, message: "No access token found. User not authenticated." };
+  }
+
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const createTenantEndpoint = `${backendUrl}/api/v1/tenants`;
+
+  console.log("Attempting to create tenant at:", createTenantEndpoint);
+
+  try {
+    const response = await axios.post(createTenantEndpoint, {
+      name,
+      slug,
+    }, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      timeout: 10000,
+    });
+
+    const data = response.data;
+
+    if (response.status >= 400) {
+      console.error("Backend create tenant error:", data);
+      return { success: false, message: data.message || "Failed to create tenant." };
+    }
+
+    console.log("Tenant created successfully:", data.data);
+    return { success: true, message: "Tenant created successfully!", tenant: data.data };
+
+  } catch (error: any) {
+    console.error("Error creating tenant:", error);
+    if (axios.isAxiosError(error)) {
+      if (error.response) {
+        console.error("Axios create tenant response error:", error.response.data);
+        return { success: false, message: error.response.data.message || "Failed to create tenant due to server error." };
+      } else if (error.request) {
+        console.error("Axios create tenant request error (no response):", error.request);
+        return { success: false, message: "No response from server. Check backend status or network." };
+      } else {
+        console.error("Axios create tenant setup error:", error.message);
         return { success: false, message: error.message || "An unexpected error occurred during request setup." };
       }
     }
