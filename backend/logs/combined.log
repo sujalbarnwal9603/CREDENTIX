@@ -101,3 +101,5 @@
 2025-08-07 21:14:07:147 [32minfo[39m: [32mAudit: USER_LOGIN[39m
 2025-08-08 20:58:51:5851 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
 2025-08-08 20:59:28:5928 [32minfo[39m: [32mAudit: USER_LOGIN[39m
+2025-08-08 21:08:30:830 [33mwarn[39m: [33mSMTP not configured - email functionality will be disabled[39m
+2025-08-08 21:10:36:1036 [32minfo[39m: [32mAudit: USER_LOGIN[39m
